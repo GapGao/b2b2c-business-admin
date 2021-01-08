@@ -1,69 +1,14 @@
-import { FormattedMessage, formatMessage } from 'umi';
-import { AlipayOutlined, DingdingOutlined, TaobaoOutlined } from '@ant-design/icons';
-import { List } from 'antd';
 import React, { Component, Fragment } from 'react';
+import { TaobaoOutlined } from '@ant-design/icons';
+import { List } from 'antd';
 
 class BindingView extends Component {
   getData = () => [
     {
-      title: formatMessage(
-        {
-          id: 'accountandsettings.binding.taobao',
-        },
-        {},
-      ),
-      description: formatMessage(
-        {
-          id: 'accountandsettings.binding.taobao-description',
-        },
-        {},
-      ),
-      actions: [
-        <a key="Bind">
-          <FormattedMessage id="accountandsettings.binding.bind" defaultMessage="Bind" />
-        </a>,
-      ],
+      title: '绑定淘宝',
+      description: '当前未绑定淘宝账号',
+      actions: [<a key="Bind">绑定</a>],
       avatar: <TaobaoOutlined className="taobao" />,
-    },
-    {
-      title: formatMessage(
-        {
-          id: 'accountandsettings.binding.alipay',
-        },
-        {},
-      ),
-      description: formatMessage(
-        {
-          id: 'accountandsettings.binding.alipay-description',
-        },
-        {},
-      ),
-      actions: [
-        <a key="Bind">
-          <FormattedMessage id="accountandsettings.binding.bind" defaultMessage="Bind" />
-        </a>,
-      ],
-      avatar: <AlipayOutlined className="alipay" />,
-    },
-    {
-      title: formatMessage(
-        {
-          id: 'accountandsettings.binding.dingding',
-        },
-        {},
-      ),
-      description: formatMessage(
-        {
-          id: 'accountandsettings.binding.dingding-description',
-        },
-        {},
-      ),
-      actions: [
-        <a key="Bind">
-          <FormattedMessage id="accountandsettings.binding.bind" defaultMessage="Bind" />
-        </a>,
-      ],
-      avatar: <DingdingOutlined className="dingding" />,
     },
   ];
 

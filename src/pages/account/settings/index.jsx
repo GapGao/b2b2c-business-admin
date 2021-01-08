@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
-import { FormattedMessage, connect } from 'umi';
 import { GridContent } from '@ant-design/pro-layout';
 import { Menu } from 'antd';
+import { connect } from 'umi';
+
 import BaseView from './components/base';
 import BindingView from './components/binding';
 import NotificationView from './components/notification';
 import SecurityView from './components/security';
 import styles from './style.less';
+
 const { Item } = Menu;
 
 class Settings extends Component {
@@ -15,27 +17,10 @@ class Settings extends Component {
   constructor(props) {
     super(props);
     const menuMap = {
-      base: (
-        <FormattedMessage id="accountandsettings.menuMap.basic" defaultMessage="Basic Settings" />
-      ),
-      security: (
-        <FormattedMessage
-          id="accountandsettings.menuMap.security"
-          defaultMessage="Security Settings"
-        />
-      ),
-      binding: (
-        <FormattedMessage
-          id="accountandsettings.menuMap.binding"
-          defaultMessage="Account Binding"
-        />
-      ),
-      notification: (
-        <FormattedMessage
-          id="accountandsettings.menuMap.notification"
-          defaultMessage="New Message Notification"
-        />
-      ),
+      base: '基本设置',
+      security: '安全设置',
+      binding: '账号绑定',
+      notification: '新消息通知',
     };
     this.state = {
       mode: 'inline',
@@ -61,15 +46,18 @@ class Settings extends Component {
     const { menuMap } = this.state;
     return Object.keys(menuMap).map((item) => <Item key={item}>{menuMap[item]}</Item>);
   };
+
   getRightTitle = () => {
     const { selectKey, menuMap } = this.state;
     return menuMap[selectKey];
   };
+
   selectKey = (key) => {
     this.setState({
       selectKey: key,
     });
   };
+
   resize = () => {
     if (!this.main) {
       return;
@@ -96,6 +84,7 @@ class Settings extends Component {
       });
     });
   };
+
   renderChildren = () => {
     const { selectKey } = this.state;
 

@@ -1,8 +1,9 @@
-import { Card, Col, Row, Tabs } from 'antd';
-import { FormattedMessage, formatMessage } from 'umi';
 import React from 'react';
+import { Card, Col, Row, Tabs } from 'antd';
+
 import { TimelineChart, Pie } from './Charts';
 import NumberInfo from './NumberInfo';
+
 import styles from '../style.less';
 
 const CustomTab = ({ data, currentTabKey: currentKey }) => (
@@ -17,12 +18,7 @@ const CustomTab = ({ data, currentTabKey: currentKey }) => (
     <Col span={12}>
       <NumberInfo
         title={data.name}
-        subTitle={
-          <FormattedMessage
-            id="dashboardandanalysis.analysis.conversion-rate"
-            defaultMessage="Conversion Rate"
-          />
-        }
+        subTitle="Conversion Rate"
         gap={2}
         total={`${data.cvr * 100}%`}
         theme={currentKey !== data.name ? 'light' : undefined}
@@ -69,12 +65,8 @@ const OfflineData = ({ activeKey, loading, offlineData, offlineChartData, handle
               height={400}
               data={offlineChartData}
               titleMap={{
-                y1: formatMessage({
-                  id: 'dashboardandanalysis.analysis.traffic',
-                }),
-                y2: formatMessage({
-                  id: 'dashboardandanalysis.analysis.payments',
-                }),
+                y1: 'traffic',
+                y2: 'payments',
               }}
             />
           </div>

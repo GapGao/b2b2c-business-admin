@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-import { connect } from 'umi';
 import { Tag, message } from 'antd';
 import groupBy from 'lodash/groupBy';
 import moment from 'moment';
+import { connect } from 'umi';
+
 import NoticeIcon from '../NoticeIcon';
+
 import styles from './index.less';
 
 class GlobalHeaderRight extends Component {
@@ -28,6 +30,7 @@ class GlobalHeaderRight extends Component {
       });
     }
   };
+
   handleNoticeClear = (title, key) => {
     const { dispatch } = this.props;
     message.success(`${'清空了'} ${title}`);
@@ -39,6 +42,7 @@ class GlobalHeaderRight extends Component {
       });
     }
   };
+
   getNoticeData = () => {
     const { notices = [] } = this.props;
 
@@ -80,6 +84,7 @@ class GlobalHeaderRight extends Component {
     });
     return groupBy(newNotices, 'type');
   };
+
   getUnreadData = (noticeData) => {
     const unreadMsg = {};
     Object.keys(noticeData).forEach((key) => {

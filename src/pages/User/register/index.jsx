@@ -1,27 +1,16 @@
-import { Form, Button, Col, Input, Popover, Progress, Row, Select, message } from 'antd';
 import React, { useState, useEffect } from 'react';
-import { Link, connect, history, FormattedMessage, formatMessage } from 'umi';
+import { Form, Button, Col, Input, Popover, Progress, Row, Select, message } from 'antd';
+import { Link, connect, history } from 'umi';
+
 import styles from './style.less';
 
 const FormItem = Form.Item;
 const { Option } = Select;
 const InputGroup = Input.Group;
 const passwordStatusMap = {
-  ok: (
-    <div className={styles.success}>
-      <FormattedMessage id="userandregister.strength.strong" />
-    </div>
-  ),
-  pass: (
-    <div className={styles.warning}>
-      <FormattedMessage id="userandregister.strength.medium" />
-    </div>
-  ),
-  poor: (
-    <div className={styles.error}>
-      <FormattedMessage id="userandregister.strength.short" />
-    </div>
-  ),
+  ok: <div className={styles.success}>strong</div>,
+  pass: <div className={styles.warning}>medium</div>,
+  poor: <div className={styles.error}>short</div>,
 };
 const passwordProgressMap = {
   ok: 'success',
@@ -99,11 +88,7 @@ const Register = ({ submitting, dispatch, userAndregister }) => {
     const promise = Promise;
 
     if (value && value !== form.getFieldValue('password')) {
-      return promise.reject(
-        formatMessage({
-          id: 'userandregister.password.twice',
-        }),
-      );
+      return promise.reject('twice');
     }
 
     return promise.resolve();
@@ -114,11 +99,7 @@ const Register = ({ submitting, dispatch, userAndregister }) => {
 
     if (!value) {
       setvisible(!!value);
-      return promise.reject(
-        formatMessage({
-          id: 'userandregister.password.required',
-        }),
-      );
+      return promise.reject('required');
     } // 有值的情况
 
     if (!visible) {
@@ -160,33 +141,22 @@ const Register = ({ submitting, dispatch, userAndregister }) => {
 
   return (
     <div className={styles.main}>
-      <h3>
-        <FormattedMessage id="userandregister.register.register" />
-      </h3>
+      <h3>register</h3>
       <Form form={form} name="UserRegister" onFinish={onFinish}>
         <FormItem
           name="mail"
           rules={[
             {
               required: true,
-              message: formatMessage({
-                id: 'userandregister.email.required',
-              }),
+              message: 'required',
             },
             {
               type: 'email',
-              message: formatMessage({
-                id: 'userandregister.email.wrong-format',
-              }),
+              message: 'wrong-format',
             },
           ]}
         >
-          <Input
-            size="large"
-            placeholder={formatMessage({
-              id: 'userandregister.email.placeholder',
-            })}
-          />
+          <Input size="large" placeholder="placeholder" />
         </FormItem>
         <Popover
           getPopupContainer={(node) => {
@@ -210,7 +180,7 @@ const Register = ({ submitting, dispatch, userAndregister }) => {
                     marginTop: 10,
                   }}
                 >
-                  <FormattedMessage id="userandregister.strength.msg" />
+                  msg
                 </div>
               </div>
             )
@@ -234,13 +204,7 @@ const Register = ({ submitting, dispatch, userAndregister }) => {
               },
             ]}
           >
-            <Input
-              size="large"
-              type="password"
-              placeholder={formatMessage({
-                id: 'userandregister.password.placeholder',
-              })}
-            />
+            <Input size="large" type="password" placeholder="placeholder" />
           </FormItem>
         </Popover>
         <FormItem
@@ -248,22 +212,14 @@ const Register = ({ submitting, dispatch, userAndregister }) => {
           rules={[
             {
               required: true,
-              message: formatMessage({
-                id: 'userandregister.confirm-password.required',
-              }),
+              message: 'required',
             },
             {
               validator: checkConfirm,
             },
           ]}
         >
-          <Input
-            size="large"
-            type="password"
-            placeholder={formatMessage({
-              id: 'userandregister.confirm-password.placeholder',
-            })}
-          />
+          <Input size="large" type="password" placeholder="placeholder" />
         </FormItem>
         <InputGroup compact>
           <Select
@@ -285,24 +241,15 @@ const Register = ({ submitting, dispatch, userAndregister }) => {
             rules={[
               {
                 required: true,
-                message: formatMessage({
-                  id: 'userandregister.phone-number.required',
-                }),
+                message: 'required',
               },
               {
                 pattern: /^\d{11}$/,
-                message: formatMessage({
-                  id: 'userandregister.phone-number.wrong-format',
-                }),
+                message: 'wrong-format',
               },
             ]}
           >
-            <Input
-              size="large"
-              placeholder={formatMessage({
-                id: 'userandregister.phone-number.placeholder',
-              })}
-            />
+            <Input size="large" placeholder="placeholder" />
           </FormItem>
         </InputGroup>
         <Row gutter={8}>
@@ -312,18 +259,11 @@ const Register = ({ submitting, dispatch, userAndregister }) => {
               rules={[
                 {
                   required: true,
-                  message: formatMessage({
-                    id: 'userandregister.verification-code.required',
-                  }),
+                  message: 'required',
                 },
               ]}
             >
-              <Input
-                size="large"
-                placeholder={formatMessage({
-                  id: 'userandregister.verification-code.placeholder',
-                })}
-              />
+              <Input size="large" placeholder="placeholder" />
             </FormItem>
           </Col>
           <Col span={8}>
@@ -333,11 +273,7 @@ const Register = ({ submitting, dispatch, userAndregister }) => {
               className={styles.getCaptcha}
               onClick={onGetCaptcha}
             >
-              {count
-                ? `${count} s`
-                : formatMessage({
-                    id: 'userandregister.register.get-verification-code',
-                  })}
+              {count ? `${count} s` : 'get-verification-code'}
             </Button>
           </Col>
         </Row>
@@ -349,10 +285,10 @@ const Register = ({ submitting, dispatch, userAndregister }) => {
             type="primary"
             htmlType="submit"
           >
-            <FormattedMessage id="userandregister.register.register" />
+            register
           </Button>
           <Link className={styles.login} to="/user/login">
-            <FormattedMessage id="userandregister.register.sign-in" />
+            sign-in
           </Link>
         </FormItem>
       </Form>

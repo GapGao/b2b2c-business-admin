@@ -3,7 +3,7 @@ import { getFakeCaptcha } from '@/services/login';
 import { LockTwoTone, MailTwoTone, MobileTwoTone, UserOutlined } from '@ant-design/icons';
 import ProForm, { ProFormCaptcha, ProFormCheckbox, ProFormText } from '@ant-design/pro-form';
 import { Alert, message, Tabs } from 'antd';
-import { useIntl, connect } from 'umi';
+import { connect } from 'umi';
 
 import styles from './index.less';
 
@@ -22,7 +22,6 @@ const Login = (props) => {
   const { userLogin = {}, submitting } = props;
   const { status, type: loginType } = userLogin;
   const [type, setType] = useState('account');
-  const intl = useIntl();
 
   const handleSubmit = (values) => {
     const { dispatch } = props;
@@ -54,29 +53,12 @@ const Login = (props) => {
         }}
       >
         <Tabs activeKey={type} onChange={setType}>
-          <Tabs.TabPane
-            key="account"
-            tab={intl.formatMessage({
-              id: 'pages.login.accountLogin.tab',
-              defaultMessage: '账户密码登录',
-            })}
-          />
-          <Tabs.TabPane
-            key="mobile"
-            tab={intl.formatMessage({
-              id: 'pages.login.phoneLogin.tab',
-              defaultMessage: '手机号登录',
-            })}
-          />
+          <Tabs.TabPane key="account" tab="账户密码登录" />
+          <Tabs.TabPane key="mobile" tab="手机号登录" />
         </Tabs>
 
         {status === 'error' && loginType === 'account' && !submitting && (
-          <LoginMessage
-            content={intl.formatMessage({
-              id: 'pages.login.accountLogin.errorMessage',
-              defaultMessage: '账户或密码错误（admin/ant.design)',
-            })}
-          />
+          <LoginMessage content="账户或密码错误（admin/ant.design)" />
         )}
         {type === 'account' && (
           <>
@@ -86,10 +68,7 @@ const Login = (props) => {
                 size: 'large',
                 prefix: <UserOutlined className={styles.prefixIcon} />,
               }}
-              placeholder={intl.formatMessage({
-                id: 'pages.login.username.placeholder',
-                defaultMessage: '用户名: admin or user',
-              })}
+              placeholder="用户名: admin or user"
               rules={[
                 {
                   required: true,
@@ -103,10 +82,7 @@ const Login = (props) => {
                 size: 'large',
                 prefix: <LockTwoTone className={styles.prefixIcon} />,
               }}
-              placeholder={intl.formatMessage({
-                id: 'pages.login.password.placeholder',
-                defaultMessage: '密码: ant.design',
-              })}
+              placeholder="密码: ant.design"
               rules={[
                 {
                   required: true,
@@ -128,10 +104,7 @@ const Login = (props) => {
                 prefix: <MobileTwoTone className={styles.prefixIcon} />,
               }}
               name="mobile"
-              placeholder={intl.formatMessage({
-                id: 'pages.login.phoneNumber.placeholder',
-                defaultMessage: '手机号',
-              })}
+              placeholder="手机号"
               rules={[
                 {
                   required: true,

@@ -1,8 +1,9 @@
-import { InfoCircleOutlined } from '@ant-design/icons';
-import { Button, Card, DatePicker, Input, Form, InputNumber, Radio, Select, Tooltip } from 'antd';
-import { connect, FormattedMessage, formatMessage } from 'umi';
 import React from 'react';
+import { InfoCircleOutlined } from '@ant-design/icons';
 import { PageContainer } from '@ant-design/pro-layout';
+import { Button, Card, DatePicker, Input, Form, Radio, Select, Tooltip } from 'antd';
+import { connect } from 'umi';
+
 import styles from './style.less';
 
 const FormItem = Form.Item;
@@ -67,7 +68,7 @@ const BasicForm = (props) => {
   };
 
   return (
-    <PageContainer content={<FormattedMessage id="formandbasic-form.basic.description" />}>
+    <PageContainer content="description">
       <Card bordered={false}>
         <Form
           hideRequiredMark
@@ -85,33 +86,25 @@ const BasicForm = (props) => {
         >
           <FormItem
             {...formItemLayout}
-            label={<FormattedMessage id="formandbasic-form.title.label" />}
+            label="label"
             name="title"
             rules={[
               {
                 required: true,
-                message: formatMessage({
-                  id: 'formandbasic-form.title.required',
-                }),
+                message: 'required',
               },
             ]}
           >
-            <Input
-              placeholder={formatMessage({
-                id: 'formandbasic-form.title.placeholder',
-              })}
-            />
+            <Input placeholder="placeholder" />
           </FormItem>
           <FormItem
             {...formItemLayout}
-            label={<FormattedMessage id="formandbasic-form.date.label" />}
+            label="label"
             name="date"
             rules={[
               {
                 required: true,
-                message: formatMessage({
-                  id: 'formandbasic-form.date.required',
-                }),
+                message: 'required',
               },
             ]}
           >
@@ -119,26 +112,17 @@ const BasicForm = (props) => {
               style={{
                 width: '100%',
               }}
-              placeholder={[
-                formatMessage({
-                  id: 'formandbasic-form.placeholder.start',
-                }),
-                formatMessage({
-                  id: 'formandbasic-form.placeholder.end',
-                }),
-              ]}
+              placeholder={['start', 'end']}
             />
           </FormItem>
           <FormItem
             {...formItemLayout}
-            label={<FormattedMessage id="formandbasic-form.goal.label" />}
+            label="label"
             name="goal"
             rules={[
               {
                 required: true,
-                message: formatMessage({
-                  id: 'formandbasic-form.goal.required',
-                }),
+                message: 'required',
               },
             ]}
           >
@@ -146,22 +130,18 @@ const BasicForm = (props) => {
               style={{
                 minHeight: 32,
               }}
-              placeholder={formatMessage({
-                id: 'formandbasic-form.goal.placeholder',
-              })}
+              placeholder="placeholder"
               rows={4}
             />
           </FormItem>
           <FormItem
             {...formItemLayout}
-            label={<FormattedMessage id="formandbasic-form.standard.label" />}
+            label="label"
             name="standard"
             rules={[
               {
                 required: true,
-                message: formatMessage({
-                  id: 'formandbasic-form.standard.required',
-                }),
+                message: 'required',
               },
             ]}
           >
@@ -169,9 +149,7 @@ const BasicForm = (props) => {
               style={{
                 minHeight: 32,
               }}
-              placeholder={formatMessage({
-                id: 'formandbasic-form.standard.placeholder',
-              })}
+              placeholder="placeholder"
               rows={4}
             />
           </FormItem>
@@ -179,10 +157,10 @@ const BasicForm = (props) => {
             {...formItemLayout}
             label={
               <span>
-                <FormattedMessage id="formandbasic-form.client.label" />
+                label
                 <em className={styles.optional}>
-                  <FormattedMessage id="formandbasic-form.form.optional" />
-                  <Tooltip title={<FormattedMessage id="formandbasic-form.label.tooltip" />}>
+                  optional
+                  <Tooltip title="tooltip">
                     <InfoCircleOutlined
                       style={{
                         marginRight: 4,
@@ -194,68 +172,26 @@ const BasicForm = (props) => {
             }
             name="client"
           >
-            <Input
-              placeholder={formatMessage({
-                id: 'formandbasic-form.client.placeholder',
-              })}
-            />
+            <Input placeholder="placeholder" />
           </FormItem>
           <FormItem
             {...formItemLayout}
             label={
               <span>
-                <FormattedMessage id="formandbasic-form.invites.label" />
-                <em className={styles.optional}>
-                  <FormattedMessage id="formandbasic-form.form.optional" />
-                </em>
+                label
+                <em className={styles.optional}>optional</em>
               </span>
             }
             name="invites"
           >
-            <Input
-              placeholder={formatMessage({
-                id: 'formandbasic-form.invites.placeholder',
-              })}
-            />
+            <Input placeholder="placeholder" />
           </FormItem>
-          <FormItem
-            {...formItemLayout}
-            label={
-              <span>
-                <FormattedMessage id="formandbasic-form.weight.label" />
-                <em className={styles.optional}>
-                  <FormattedMessage id="formandbasic-form.form.optional" />
-                </em>
-              </span>
-            }
-            name="weight"
-          >
-            <InputNumber
-              placeholder={formatMessage({
-                id: 'formandbasic-form.weight.placeholder',
-              })}
-              min={0}
-              max={100}
-            />
-            <span className="ant-form-text">%</span>
-          </FormItem>
-          <FormItem
-            {...formItemLayout}
-            label={<FormattedMessage id="formandbasic-form.public.label" />}
-            help={<FormattedMessage id="formandbasic-form.label.help" />}
-            name="publicType"
-          >
+          <FormItem {...formItemLayout} label="label" help="help" name="publicType">
             <div>
               <Radio.Group>
-                <Radio value="1">
-                  <FormattedMessage id="formandbasic-form.radio.public" />
-                </Radio>
-                <Radio value="2">
-                  <FormattedMessage id="formandbasic-form.radio.partially-public" />
-                </Radio>
-                <Radio value="3">
-                  <FormattedMessage id="formandbasic-form.radio.private" />
-                </Radio>
+                <Radio value="1">public</Radio>
+                <Radio value="2">partially-public</Radio>
+                <Radio value="3">private</Radio>
               </Radio.Group>
               <FormItem
                 style={{
@@ -265,23 +201,14 @@ const BasicForm = (props) => {
               >
                 <Select
                   mode="multiple"
-                  placeholder={formatMessage({
-                    id: 'formandbasic-form.publicUsers.placeholder',
-                  })}
                   style={{
                     margin: '8px 0',
                     display: showPublicUsers ? 'block' : 'none',
                   }}
                 >
-                  <Option value="1">
-                    <FormattedMessage id="formandbasic-form.option.A" />
-                  </Option>
-                  <Option value="2">
-                    <FormattedMessage id="formandbasic-form.option.B" />
-                  </Option>
-                  <Option value="3">
-                    <FormattedMessage id="formandbasic-form.option.C" />
-                  </Option>
+                  <Option value="1">A</Option>
+                  <Option value="2">B</Option>
+                  <Option value="3">C</Option>
                 </Select>
               </FormItem>
             </div>
@@ -293,14 +220,14 @@ const BasicForm = (props) => {
             }}
           >
             <Button type="primary" htmlType="submit" loading={submitting}>
-              <FormattedMessage id="formandbasic-form.form.submit" />
+              submit
             </Button>
             <Button
               style={{
                 marginLeft: 8,
               }}
             >
-              <FormattedMessage id="formandbasic-form.form.save" />
+              save
             </Button>
           </FormItem>
         </Form>

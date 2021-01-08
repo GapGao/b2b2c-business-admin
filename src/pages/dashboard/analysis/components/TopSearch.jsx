@@ -1,44 +1,35 @@
+import React from 'react';
 import { InfoCircleOutlined } from '@ant-design/icons';
 import { Card, Col, Row, Table, Tooltip } from 'antd';
-import { FormattedMessage } from 'umi';
-import React from 'react';
 import numeral from 'numeral';
+
 import { MiniArea } from './Charts';
 import NumberInfo from './NumberInfo';
 import Trend from './Trend';
+
 import styles from '../style.less';
 
 const columns = [
   {
-    title: <FormattedMessage id="dashboardandanalysis.table.rank" defaultMessage="Rank" />,
+    title: 'Rank',
     dataIndex: 'index',
     key: 'index',
   },
   {
-    title: (
-      <FormattedMessage
-        id="dashboardandanalysis.table.search-keyword"
-        defaultMessage="Search keyword"
-      />
-    ),
+    title: 'Search keyword',
     dataIndex: 'keyword',
     key: 'keyword',
     render: (text) => <a href="/">{text}</a>,
   },
   {
-    title: <FormattedMessage id="dashboardandanalysis.table.users" defaultMessage="Users" />,
+    title: 'Users',
     dataIndex: 'count',
     key: 'count',
     sorter: (a, b) => a.count - b.count,
     className: styles.alignRight,
   },
   {
-    title: (
-      <FormattedMessage
-        id="dashboardandanalysis.table.weekly-range"
-        defaultMessage="Weekly Range"
-      />
-    ),
+    title: 'Weekly Range',
     dataIndex: 'range',
     key: 'range',
     sorter: (a, b) => a.range - b.range,
@@ -60,12 +51,7 @@ const TopSearch = ({ loading, visitData2, searchData, dropdownGroup }) => (
   <Card
     loading={loading}
     bordered={false}
-    title={
-      <FormattedMessage
-        id="dashboardandanalysis.analysis.online-top-search"
-        defaultMessage="Online Top Search"
-      />
-    }
+    title="Online Top Search"
     extra={dropdownGroup}
     style={{
       height: '100%',
@@ -82,18 +68,8 @@ const TopSearch = ({ loading, visitData2, searchData, dropdownGroup }) => (
         <NumberInfo
           subTitle={
             <span>
-              <FormattedMessage
-                id="dashboardandanalysis.analysis.search-users"
-                defaultMessage="search users"
-              />
-              <Tooltip
-                title={
-                  <FormattedMessage
-                    id="dashboardandanalysis.analysis.introduce"
-                    defaultMessage="introduce"
-                  />
-                }
-              >
+              search users
+              <Tooltip title="introduce">
                 <InfoCircleOutlined
                   style={{
                     marginLeft: 8,
@@ -119,18 +95,8 @@ const TopSearch = ({ loading, visitData2, searchData, dropdownGroup }) => (
         <NumberInfo
           subTitle={
             <span>
-              <FormattedMessage
-                id="dashboardandanalysis.analysis.per-capita-search"
-                defaultMessage="Per Capita Search"
-              />
-              <Tooltip
-                title={
-                  <FormattedMessage
-                    id="dashboardandanalysis.analysis.introduce"
-                    defaultMessage="introduce"
-                  />
-                }
-              >
+              Per Capita Search
+              <Tooltip title="introduce">
                 <InfoCircleOutlined
                   style={{
                     marginLeft: 8,

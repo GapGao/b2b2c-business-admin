@@ -1,123 +1,23 @@
-import { FormattedMessage, formatMessage } from 'umi';
 import React, { Component } from 'react';
 import { List } from 'antd';
+
 const passwordStrength = {
-  strong: (
-    <span className="strong">
-      <FormattedMessage id="accountandsettings.security.strong" defaultMessage="Strong" />
-    </span>
-  ),
-  medium: (
-    <span className="medium">
-      <FormattedMessage id="accountandsettings.security.medium" defaultMessage="Medium" />
-    </span>
-  ),
-  weak: (
-    <span className="weak">
-      <FormattedMessage id="accountandsettings.security.weak" defaultMessage="Weak" />
-      Weak
-    </span>
-  ),
+  strong: <span className="strong">Strong</span>,
+  medium: <span className="medium">Medium</span>,
+  weak: <span className="weak">Weak</span>,
 };
 
 class SecurityView extends Component {
   getData = () => [
     {
-      title: formatMessage(
-        {
-          id: 'accountandsettings.security.password',
-        },
-        {},
-      ),
-      description: (
-        <>
-          {formatMessage({
-            id: 'accountandsettings.security.password-description',
-          })}
-          ：{passwordStrength.strong}
-        </>
-      ),
-      actions: [
-        <a key="Modify">
-          <FormattedMessage id="accountandsettings.security.modify" defaultMessage="Modify" />
-        </a>,
-      ],
+      title: '账户密码',
+      description: <>账户密码：{passwordStrength.strong}</>,
+      actions: [<a key="Modify">修改</a>],
     },
     {
-      title: formatMessage(
-        {
-          id: 'accountandsettings.security.phone',
-        },
-        {},
-      ),
-      description: `${formatMessage(
-        {
-          id: 'accountandsettings.security.phone-description',
-        },
-        {},
-      )}：138****8293`,
-      actions: [
-        <a key="Modify">
-          <FormattedMessage id="accountandsettings.security.modify" defaultMessage="Modify" />
-        </a>,
-      ],
-    },
-    {
-      title: formatMessage(
-        {
-          id: 'accountandsettings.security.question',
-        },
-        {},
-      ),
-      description: formatMessage(
-        {
-          id: 'accountandsettings.security.question-description',
-        },
-        {},
-      ),
-      actions: [
-        <a key="Set">
-          <FormattedMessage id="accountandsettings.security.set" defaultMessage="Set" />
-        </a>,
-      ],
-    },
-    {
-      title: formatMessage(
-        {
-          id: 'accountandsettings.security.email',
-        },
-        {},
-      ),
-      description: `${formatMessage(
-        {
-          id: 'accountandsettings.security.email-description',
-        },
-        {},
-      )}：ant***sign.com`,
-      actions: [
-        <a key="Modify">
-          <FormattedMessage id="accountandsettings.security.modify" defaultMessage="Modify" />
-        </a>,
-      ],
-    },
-    {
-      title: formatMessage(
-        {
-          id: 'accountandsettings.security.mfa',
-        },
-        {},
-      ),
-      description: formatMessage(
-        {
-          id: 'accountandsettings.security.mfa-description',
-        },
-        {},
-      ),
-      actions: [
-        <a key="bind">
-          <FormattedMessage id="accountandsettings.security.bind" defaultMessage="Bind" />
-        </a>,
-      ],
+      title: '密保手机',
+      description: '已绑定手机：138****8293',
+      actions: [<a key="Modify">修改</a>],
     },
   ];
 

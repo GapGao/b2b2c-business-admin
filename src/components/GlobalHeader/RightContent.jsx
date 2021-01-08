@@ -1,11 +1,13 @@
-import { Tooltip, Tag } from 'antd';
-import { QuestionCircleOutlined } from '@ant-design/icons';
 import React from 'react';
+import { QuestionCircleOutlined } from '@ant-design/icons';
+import { Tooltip, Tag } from 'antd';
 import { connect, SelectLang } from 'umi';
-import Avatar from './AvatarDropdown';
+
 import HeaderSearch from '../HeaderSearch';
-import styles from './index.less';
+import Avatar from './AvatarDropdown';
 import NoticeIconView from './NoticeIconView';
+
+import styles from './index.less';
 
 const ENVTagColor = {
   dev: 'orange',
@@ -68,7 +70,6 @@ const GlobalHeaderRight = (props) => {
           <Tag color={ENVTagColor[REACT_APP_ENV]}>{REACT_APP_ENV}</Tag>
         </span>
       )}
-      <SelectLang className={styles.action} />
     </div>
   );
 };

@@ -7,8 +7,9 @@ const proSettings = {
   fixedHeader: false,
   fixSiderbar: true,
   colorWeak: false,
-  title: 'Ant Design Pro',
+  title: '优折仓',
   pwa: false,
   iconfontUrl: '',
 };
+
 export default proSettings;
