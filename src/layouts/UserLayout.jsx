@@ -13,7 +13,7 @@ const UserLayout = (props) => {
           <div className={styles.header}>
             <Link to="/">
               <img alt="logo" className={styles.logo} src={logo} />
-              <span className={styles.title}>优折仓</span>
+              <span className={styles.title}>优折仓商户端</span>
             </Link>
           </div>
         </div>

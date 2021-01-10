@@ -1,10 +1,11 @@
-import { Chart, Coord, Geom, Tooltip } from 'bizcharts';
 import React, { Component } from 'react';
 import { DataView } from '@antv/data-set';
-import Debounce from 'lodash.debounce';
 import { Divider } from 'antd';
-import ReactFitText from 'react-fittext';
+import { Chart, Coord, Geom, Tooltip } from 'bizcharts';
 import classNames from 'classnames';
+import Debounce from 'lodash.debounce';
+import ReactFitText from 'react-fittext';
+
 import autoHeight from '../autoHeight';
 import styles from './index.less';
 
@@ -13,8 +14,11 @@ class Pie extends Component {
     legendData: [],
     legendBlock: false,
   };
+
   chart = undefined;
+
   root = undefined;
+
   requestRef = 0; // for window resize auto responsive legend
 
   resize = Debounce(() => {
@@ -100,9 +104,11 @@ class Pie extends Component {
       legendData,
     });
   };
+
   handleRoot = (n) => {
     this.root = n;
   };
+
   handleLegendClick = (item, i) => {
     const newItem = item;
     newItem.checked = !newItem.checked;

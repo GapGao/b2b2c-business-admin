@@ -1,10 +1,12 @@
 {
   "compilerOptions": {
+    "target": "es6",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
-    }
+    },
+    "jsx": "react"
   }
 }

@@ -1,6 +1,7 @@
-import { Avatar, List } from 'antd';
 import React from 'react';
+import { Avatar, List } from 'antd';
 import classNames from 'classnames';
+
 import styles from './NoticeList.less';
 
 const NoticeList = ({
@@ -35,15 +36,17 @@ const NoticeList = ({
         renderItem={(item, i) => {
           const itemCls = classNames(styles.item, {
             [styles.read]: item.read,
-          }); // eslint-disable-next-line no-nested-ternary
+          });
 
-          const leftIcon = item.avatar ? (
-            typeof item.avatar === 'string' ? (
-              <Avatar className={styles.avatar} src={item.avatar} />
-            ) : (
-              <span className={styles.iconElement}>{item.avatar}</span>
-            )
-          ) : null;
+          let leftIcon = null;
+          if (item.avatar) {
+            if (typeof item.avatar === 'string') {
+              leftIcon = <Avatar className={styles.avatar} src={item.avatar} />;
+            } else {
+              leftIcon = <span className={styles.iconElement}>{item.avatar}</span>;
+            }
+          }
+
           return (
             <List.Item
               className={itemCls}

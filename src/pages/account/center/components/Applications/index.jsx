@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   DownloadOutlined,
   EditOutlined,
@@ -5,9 +6,9 @@ import {
   ShareAltOutlined,
 } from '@ant-design/icons';
 import { Avatar, Card, Dropdown, List, Menu, Tooltip } from 'antd';
-import React from 'react';
-import { connect } from 'umi';
 import numeral from 'numeral';
+import { connect } from 'umi';
+
 import stylesApplications from './index.less';
 
 export function formatWan(val) {

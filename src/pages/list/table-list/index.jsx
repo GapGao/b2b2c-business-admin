@@ -1,11 +1,13 @@
-import { PlusOutlined } from '@ant-design/icons';
-import { Button, Divider, message, Input, Drawer } from 'antd';
 import React, { useState, useRef } from 'react';
+import { PlusOutlined } from '@ant-design/icons';
+import ProDescriptions from '@ant-design/pro-descriptions';
 import { PageContainer, FooterToolbar } from '@ant-design/pro-layout';
 import ProTable from '@ant-design/pro-table';
-import ProDescriptions from '@ant-design/pro-descriptions';
+import { Button, Divider, message, Input, Drawer } from 'antd';
+
 import CreateForm from './components/CreateForm';
 import UpdateForm from './components/UpdateForm';
+
 import { queryRule, updateRule, addRule, removeRule } from './service';
 /**
  * 添加节点
@@ -181,7 +183,7 @@ const TableList = () => {
           labelWidth: 120,
         }}
         toolBarRender={() => [
-          <Button type="primary" onClick={() => handleModalVisible(true)}>
+          <Button key="create" type="primary" onClick={() => handleModalVisible(true)}>
             <PlusOutlined /> 新建
           </Button>,
         ]}

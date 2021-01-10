@@ -24,12 +24,7 @@
     padding: 0 12px;
     cursor: pointer;
     transition: all 0.3s;
-    > span {
-      vertical-align: middle;
-    }
-    &:hover {
-      background: @pro-header-hover-bg;
-    }
+    &:hover,
     &:global(.opened) {
       background: @pro-header-hover-bg;
     }
@@ -42,41 +37,24 @@
   }
   .account {
     .avatar {
-      margin: ~'calc((@{layout-header-height} - 24px) / 2)' 0;
       margin-right: 8px;
-      color: @primary-color;
       vertical-align: top;
       background: rgba(255, 255, 255, 0.85);
     }
   }
 }
 
-.dark {
-  .action {
-    color: rgba(255, 255, 255, 0.85);
-    > span {
-      color: rgba(255, 255, 255, 0.85);
-    }
-    &:hover,
-    &:global(.opened) {
-      background: @primary-color;
-    }
-  }
+.container > * {
+  background-color: @popover-bg;
+  border-radius: 4px;
+  box-shadow: @shadow-1-down;
 }
 
-:global(.ant-pro-global-header) {
-  .dark {
-    .action {
-      color: @text-color;
-      > span {
-        color: @text-color;
-      }
-      &:hover {
-        color: rgba(255, 255, 255, 0.85);
-        > span {
-          color: rgba(255, 255, 255, 0.85);
-        }
-      }
-    }
+@media screen and (max-width: @screen-xs) {
+  .container {
+    width: 100% !important;
+  }
+  .container > * {
+    border-radius: 0 !important;
   }
 }

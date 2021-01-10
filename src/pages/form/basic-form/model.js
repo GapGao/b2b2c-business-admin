@@ -1,4 +1,5 @@
 import { message } from 'antd';
+
 import { fakeSubmitForm } from './service';
 
 const Model = {

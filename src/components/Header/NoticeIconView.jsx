@@ -4,7 +4,7 @@ import groupBy from 'lodash/groupBy';
 import moment from 'moment';
 import { connect } from 'umi';
 
-import NoticeIcon from '../NoticeIcon';
+import NoticeIcon from './NoticeIcon';
 
 import styles from './index.less';
 
@@ -151,7 +151,6 @@ class GlobalHeaderRight extends Component {
 
 export default connect(({ user, global, loading }) => ({
   currentUser: user.currentUser,
-  collapsed: global.collapsed,
   fetchingMoreNotices: loading.effects['global/fetchMoreNotices'],
   fetchingNotices: loading.effects['global/fetchNotices'],
   notices: global.notices,

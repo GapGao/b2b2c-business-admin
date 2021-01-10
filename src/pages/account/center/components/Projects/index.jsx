@@ -1,8 +1,10 @@
-import { Card, List } from 'antd';
 import React from 'react';
-import { connect } from 'umi';
+import { Card, List } from 'antd';
 import moment from 'moment';
+import { connect } from 'umi';
+
 import AvatarList from '../AvatarList';
+
 import styles from './index.less';
 
 const Projects = (props) => {

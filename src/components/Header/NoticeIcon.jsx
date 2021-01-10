@@ -1,11 +1,14 @@
-import { BellOutlined } from '@ant-design/icons';
-import { Badge, Spin, Tabs } from 'antd';
-import useMergedState from 'rc-util/es/hooks/useMergedState';
 import React from 'react';
+import { BellOutlined } from '@ant-design/icons';
+import { Badge, Spin, Tabs, Dropdown } from 'antd';
 import classNames from 'classnames';
+import useMergedState from 'rc-util/es/hooks/useMergedState';
+
+import styles from './NoticeIcon.less';
 import NoticeList from './NoticeList';
-import HeaderDropdown from '../HeaderDropdown';
-import styles from './index.less';
+
+import indexStyles from './index.less';
+
 const { TabPane } = Tabs;
 
 const NoticeIcon = (props) => {
@@ -67,17 +70,15 @@ const NoticeIcon = (props) => {
     );
   };
 
-  const { className, count, bell } = props;
+  const { className, count } = props;
   const [visible, setVisible] = useMergedState(false, {
     value: props.popupVisible,
     onChange: props.onPopupVisibleChange,
   });
-  const noticeButtonClass = classNames(className, styles.noticeButton);
   const notificationBox = getNotificationBox();
-  const NoticeBellIcon = bell || <BellOutlined className={styles.icon} />;
   const trigger = (
     <span
-      className={classNames(noticeButtonClass, {
+      className={classNames(className, styles.noticeButton, {
         opened: visible,
       })}
     >
@@ -88,7 +89,7 @@ const NoticeIcon = (props) => {
         }}
         className={styles.badge}
       >
-        {NoticeBellIcon}
+        <BellOutlined className={styles.icon} />
       </Badge>
     </span>
   );
@@ -98,16 +99,16 @@ const NoticeIcon = (props) => {
   }
 
   return (
-    <HeaderDropdown
+    <Dropdown
       placement="bottomRight"
       overlay={notificationBox}
-      overlayClassName={styles.popover}
+      overlayClassName={classNames(indexStyles.container, styles.popover)}
       trigger={['click']}
       visible={visible}
       onVisibleChange={setVisible}
     >
       {trigger}
-    </HeaderDropdown>
+    </Dropdown>
   );
 };
 

@@ -1,5 +1,4 @@
-const proSettings = {
-  navTheme: 'dark',
+const defaultSettings = {
   // 拂晓蓝
   primaryColor: '#1890ff',
   layout: 'side',
@@ -7,9 +6,9 @@ const proSettings = {
   fixedHeader: false,
   fixSiderbar: true,
   colorWeak: false,
-  title: '优折仓',
+  title: '优折仓商户端',
   pwa: false,
   iconfontUrl: '',
 };
 
-export default proSettings;
+export default defaultSettings;

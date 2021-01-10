@@ -1,12 +1,14 @@
-import { PlusOutlined, HomeOutlined, ContactsOutlined, ClusterOutlined } from '@ant-design/icons';
-import { Avatar, Card, Col, Divider, Input, Row, Tag } from 'antd';
 import React, { Component, useState, useRef } from 'react';
+import { PlusOutlined, HomeOutlined, ContactsOutlined, ClusterOutlined } from '@ant-design/icons';
 import { GridContent } from '@ant-design/pro-layout';
+import { Avatar, Card, Col, Divider, Input, Row, Tag } from 'antd';
 import { Link, connect } from 'umi';
-import Projects from './components/Projects';
-import Articles from './components/Articles';
-import Applications from './components/Applications';
+
 import styles from './Center.less';
+import Applications from './components/Applications';
+import Articles from './components/Articles';
+import Projects from './components/Projects';
+
 const operationTabList = [
   {
     key: 'articles',
@@ -145,6 +147,7 @@ class Center extends Component {
   state = {
     tabKey: 'articles',
   };
+
   input = undefined;
 
   componentDidMount() {
@@ -165,6 +168,7 @@ class Center extends Component {
       tabKey: key,
     });
   };
+
   renderChildrenByTabKey = (tabKey) => {
     if (tabKey === 'projects') {
       return <Projects />;
@@ -180,6 +184,7 @@ class Center extends Component {
 
     return null;
   };
+
   renderUserInfo = (currentUser) => (
     <div className={styles.detail}>
       <p>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Tooltip } from 'antd';
+
 import styles from './index.less';
 
 const MiniProgress = ({

@@ -1,8 +1,9 @@
-import { PlusOutlined } from '@ant-design/icons';
-import { Button, Card, List, Typography } from 'antd';
 import React, { Component } from 'react';
+import { PlusOutlined } from '@ant-design/icons';
 import { PageContainer } from '@ant-design/pro-layout';
+import { Button, Card, List, Typography } from 'antd';
 import { connect } from 'umi';
+
 import styles from './style.less';
 
 const { Paragraph } = Typography;

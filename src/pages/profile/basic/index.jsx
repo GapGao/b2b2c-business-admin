@@ -1,7 +1,8 @@
-import { Badge, Card, Descriptions, Divider, Table } from 'antd';
 import React, { Component } from 'react';
 import { PageContainer } from '@ant-design/pro-layout';
+import { Badge, Card, Descriptions, Divider, Table } from 'antd';
 import { connect } from 'umi';
+
 import styles from './style.less';
 
 const progressColumns = [

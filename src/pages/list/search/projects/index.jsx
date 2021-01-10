@@ -1,10 +1,12 @@
-import { Card, Col, Form, List, Row, Select, Typography } from 'antd';
 import React, { useEffect } from 'react';
-import { connect } from 'umi';
+import { Card, Col, Form, List, Row, Select, Typography } from 'antd';
 import moment from 'moment';
+import { connect } from 'umi';
+
 import AvatarList from './components/AvatarList';
 import StandardFormRow from './components/StandardFormRow';
 import TagSelect from './components/TagSelect';
+
 import styles from './style.less';
 
 const { Option } = Select;

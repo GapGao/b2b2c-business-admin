@@ -1,11 +1,14 @@
-import { Avatar, Card, Col, List, Skeleton, Row, Statistic } from 'antd';
 import React, { Component } from 'react';
-import { Link, connect } from 'umi';
 import { PageContainer } from '@ant-design/pro-layout';
+import { Avatar, Card, Col, List, Skeleton, Row, Statistic } from 'antd';
 import moment from 'moment';
-import Radar from './components/Radar';
+import { Link, connect } from 'umi';
+
 import EditableLinkGroup from './components/EditableLinkGroup';
+import Radar from './components/Radar';
+
 import styles from './style.less';
+
 const links = [
   {
     title: '操作一',

@@ -1,9 +1,10 @@
+import React, { useRef } from 'react';
 import { SearchOutlined } from '@ant-design/icons';
 import { AutoComplete, Input } from 'antd';
-import useMergedState from 'rc-util/es/hooks/useMergedState';
-import React, { useRef } from 'react';
 import classNames from 'classnames';
-import styles from './index.less';
+import useMergedState from 'rc-util/es/hooks/useMergedState';
+
+import styles from './HeaderSearch.less';
 
 const HeaderSearch = (props) => {
   const {

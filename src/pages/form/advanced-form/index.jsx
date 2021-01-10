@@ -1,10 +1,13 @@
-import { CloseCircleOutlined } from '@ant-design/icons';
-import { Button, Card, Col, DatePicker, Form, Input, Popover, Row, Select, TimePicker } from 'antd';
 import React, { useState } from 'react';
+import { CloseCircleOutlined } from '@ant-design/icons';
 import { PageContainer, FooterToolbar } from '@ant-design/pro-layout';
+import { Button, Card, Col, DatePicker, Form, Input, Popover, Row, Select, TimePicker } from 'antd';
 import { connect } from 'umi';
+
 import TableForm from './components/TableForm';
+
 import styles from './style.less';
+
 const { Option } = Select;
 const { RangePicker } = DatePicker;
 const fieldLabels = {

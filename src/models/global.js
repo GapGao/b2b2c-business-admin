@@ -3,7 +3,6 @@ import { queryNotices } from '@/services/user';
 const GlobalModel = {
   namespace: 'global',
   state: {
-    collapsed: false,
     notices: [],
   },
   effects: {
@@ -69,19 +68,8 @@ const GlobalModel = {
     },
   },
   reducers: {
-    changeLayoutCollapsed(
-      state = {
-        notices: [],
-        collapsed: true,
-      },
-      { payload },
-    ) {
-      return { ...state, collapsed: payload };
-    },
-
     saveNotices(state, { payload }) {
       return {
-        collapsed: false,
         ...state,
         notices: payload,
       };
@@ -90,13 +78,11 @@ const GlobalModel = {
     saveClearedNotices(
       state = {
         notices: [],
-        collapsed: true,
       },
       { payload },
     ) {
       return {
         ...state,
-        collapsed: false,
         notices: state.notices.filter((item) => item.type !== payload),
       };
     },

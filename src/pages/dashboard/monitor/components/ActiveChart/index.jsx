@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Statistic } from 'antd';
+
 import { MiniArea } from '../Charts';
+
 import styles from './index.less';
 
 function fixedZero(val) {
@@ -24,7 +26,9 @@ export default class ActiveChart extends Component {
   state = {
     activeData: getActiveData(),
   };
+
   timer = undefined;
+
   requestRef = undefined;
 
   componentDidMount() {

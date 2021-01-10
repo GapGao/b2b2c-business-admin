@@ -1,6 +1,7 @@
-import { Axis, Chart, Coord, Geom, Tooltip } from 'bizcharts';
-import { Col, Row } from 'antd';
 import React, { Component } from 'react';
+import { Col, Row } from 'antd';
+import { Axis, Chart, Coord, Geom, Tooltip } from 'bizcharts';
+
 import autoHeight from './autoHeight';
 import styles from './index.less';
 
@@ -9,7 +10,9 @@ class Radar extends Component {
   state = {
     legendData: [],
   };
+
   chart = undefined;
+
   node = undefined;
 
   componentDidMount() {
@@ -50,9 +53,11 @@ class Radar extends Component {
       legendData,
     });
   };
+
   handleRef = (n) => {
     this.node = n;
   };
+
   handleLegendClick = (item, i) => {
     const newItem = item;
     newItem.checked = !newItem.checked;

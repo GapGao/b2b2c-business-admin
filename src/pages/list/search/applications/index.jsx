@@ -1,3 +1,4 @@
+import React, { useEffect } from 'react';
 import {
   DownloadOutlined,
   EditOutlined,
@@ -5,11 +6,12 @@ import {
   ShareAltOutlined,
 } from '@ant-design/icons';
 import { Avatar, Card, Col, Dropdown, List, Menu, Row, Select, Tooltip, Form } from 'antd';
-import React, { useEffect } from 'react';
-import { connect } from 'umi';
 import numeral from 'numeral';
+import { connect } from 'umi';
+
 import StandardFormRow from './components/StandardFormRow';
 import TagSelect from './components/TagSelect';
+
 import styles from './style.less';
 
 const { Option } = Select;

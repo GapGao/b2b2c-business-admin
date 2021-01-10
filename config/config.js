@@ -29,7 +29,7 @@ export default defineConfig({
     ie: 11,
   },
   routes,
-  // Theme for antd: https://ant.design/docs/react/customize-theme-cn
+  // Theme for antd: https://ant.design/docs/rasdaeact/customize-theme-cn
   theme: {
     'primary-color': defaultSettings.primaryColor,
   },

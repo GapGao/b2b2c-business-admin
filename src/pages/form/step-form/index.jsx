@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { Card, Steps } from 'antd';
 import { PageContainer } from '@ant-design/pro-layout';
+import { Card, Steps } from 'antd';
 import { connect } from 'umi';
+
 import Step1 from './components/Step1';
 import Step2 from './components/Step2';
 import Step3 from './components/Step3';
+
 import styles from './style.less';
 
 const { Step } = Steps;

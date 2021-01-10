@@ -17,7 +17,7 @@ const actions = (
   </div>
 );
 
-const RegisterResult = ({ location }) => (
+const RegisterResult = () => (
   <Result
     className={styles.registerResult}
     status="success"

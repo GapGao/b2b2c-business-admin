@@ -1,6 +1,7 @@
-import { Button, Result, Descriptions, Statistic } from 'antd';
 import React from 'react';
+import { Button, Result, Descriptions, Statistic } from 'antd';
 import { connect } from 'umi';
+
 import styles from './index.less';
 
 const Step3 = (props) => {

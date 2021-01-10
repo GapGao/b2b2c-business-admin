@@ -1,6 +1,7 @@
-import { CaretUpOutlined, CaretDownOutlined } from '@ant-design/icons';
 import React from 'react';
+import { CaretUpOutlined, CaretDownOutlined } from '@ant-design/icons';
 import classNames from 'classnames';
+
 import styles from './index.less';
 
 const NumberInfo = ({ theme, title, subTitle, total, subTotal, status, suffix, gap, ...rest }) => (
