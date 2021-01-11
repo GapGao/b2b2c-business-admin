@@ -9,11 +9,11 @@ import {
 import { Avatar, Menu, Dropdown } from 'antd';
 import { history } from 'umi';
 
-import HeaderSearch from './HeaderSearch';
-import NoticeIconView from './NoticeIconView';
+// import HeaderSearch from './HeaderSearch';
+// import NoticeIconView from './NoticeIconView';
 
 import logo from '../../assets/images/applogo.png';
-import styles from './index.less';
+import style from './index.less';
 
 class Header extends React.Component {
   onMenuClick = (event) => {
@@ -36,7 +36,7 @@ class Header extends React.Component {
 
   render() {
     const menuHeaderDropdown = (
-      <Menu className={styles.menu} selectedKeys={[]} onClick={this.onMenuClick}>
+      <Menu className={style.menu} selectedKeys={[]} onClick={this.onMenuClick}>
         <Menu.Item key="change">
           <SyncOutlined />
           切换店铺
@@ -61,16 +61,16 @@ class Header extends React.Component {
       </Menu>
     );
     return (
-      <div className={styles.right}>
-        <HeaderSearch
-          className={`${styles.action} ${styles.search}`}
+      <div className={style.right}>
+        {/* <HeaderSearch
+          className={`${style.action} ${style.search}`}
           placeholder="站内搜索"
           options={[]}
         />
-        <NoticeIconView />
-        <Dropdown overlayClassName={styles.container} overlay={menuHeaderDropdown}>
-          <span className={`${styles.action} ${styles.account}`}>
-            <Avatar size="small" className={styles.avatar} src={logo} alt="avatar" />
+        <NoticeIconView /> */}
+        <Dropdown overlayClassName={style.container} overlay={menuHeaderDropdown}>
+          <span className={`${style.action} ${style.account}`}>
+            <Avatar size="small" className={style.avatar} src={logo} alt="avatar" />
             <span>某某某</span>
           </span>
         </Dropdown>

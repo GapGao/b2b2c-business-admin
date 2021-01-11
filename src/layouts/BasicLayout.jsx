@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import Header from '@/components/Header';
+import Header from '@/components/header';
 import ProLayout from '@ant-design/pro-layout';
 import { Link, connect, history } from 'umi';
 

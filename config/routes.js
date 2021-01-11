@@ -19,13 +19,11 @@ export default [
           },
           {
             name: 'register-result',
-            icon: 'smile',
             path: '/user/register-result',
             component: './user/register-result',
           },
           {
             name: 'register',
-            icon: 'smile',
             path: '/user/register',
             component: './user/register',
           },
@@ -54,7 +52,7 @@ export default [
               {
                 name: '订单管理',
                 path: '/order/order_manage',
-                component: './dashboard/analysis',
+                component: './order/OrderManage',
               },
               {
                 name: '评价管理',
@@ -80,7 +78,7 @@ export default [
               {
                 name: '发布商品',
                 path: '/goods/publish_goods',
-                component: './form/basic-form',
+                component: './goods/PublishGoods',
               },
               {
                 name: '商品分组',
